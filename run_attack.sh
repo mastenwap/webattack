@@ -23,7 +23,7 @@ encode3=$(cat lfilist.txt | sed 's/ /%20/g' > lfilist_encode.txt)
 lfi(){
 for cek in $(cat lfilist_encode.txt);
 do
-curl -s $domain$cek /logs/lfilog.txt
+curl -s $domain$cek > /logs/lfilog.txt
 echo "LFI -> $domain"
 done
 }
@@ -32,7 +32,7 @@ encode4=$(cat rcelist.txt | sed 's/ /%20/g' > rcelist_encode.txt)
 rce(){
 for cek in $(cat rcelist_encode.txt);
 do
-curl -s $domain$cek /logs/rcelog.txt
+curl -s $domain$cek > /logs/rcelog.txt
 echo "RCE -> $domain"
 done
 }
