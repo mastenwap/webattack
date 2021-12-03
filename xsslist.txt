@@ -28,4 +28,3 @@
 <object src=1 href=1 onerror="javascript:alert(1)"></object>
 <script src=1 href=1 onerror="javascript:alert(1)"></script>
 <svg onResize svg onResize="javascript:javascript:alert(1)"></svg onResize>
-<title onPropertyChange title onPropertyChange="javascript:javascript:alert(1)"></title onPropertyChange>
